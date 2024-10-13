@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Moment.js and lodash.js are popular java script libraries which are loaded using the script tag below -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+</head>
+<body style="background-color: black; color: white; font-family: 'Courier New', Courier, monospace;">
+    <h1 style="color: white; text-align:center">Lab 1: Moment.js and Lodash Demo</h1>
+    
+    <!-- Section to display the output of Moment.js operations -->
+    <div id="moment-output">
+        <h2 style="color: white;">Moment.js Output:</h2>
+        <p id="Current-Date"></p>
+        <p id="Date a Week-Later"></p>
+    </div>
+
+    <!-- Section to display the output of Lodash operations -->
+    <div id="lodash-output">
+        <h2 style="color: white;">Lodash Output:</h2>
+        <p id="array-output"></p>
+    </div>
+
+    <script>
+        // Moment.js Example
+
+        // Get the current date
+        const currentDate = moment();
+        // Display the current date in a formatted string
+        document.getElementById('Current-Date').innerText = `Current Date: ${currentDate.format("MMMM Do YYYY, h:mm:ss a")}`;
+
+        // Add 7 days to the current date and display the new date
+        const weekLater = currentDate.add(7, 'days');
+        document.getElementById('Date a Week-Later').innerText = `Date a week later: ${weekLater.format("MMMM Do YYYY, h:mm:ss a")}`;
+
+        // Lodash Example
+
+        // Create an array of numbers
+        const myArray = [1, 2, 3, 4, 5];
+        // Shuffle the array using Lodash's shuffle function
+        const shuffledArray = _.shuffle(myArray);
+        // Display both the original and shuffled arrays
+        document.getElementById('array-output').innerText = `Original Array: [${myArray}] \nShuffled Array: [${shuffledArray}]`;
+    </script>
+</body>
+</html>
