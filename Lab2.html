@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            padding: 20px;
+        }
+        .university-container {
+            border: 1px solid #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #333;
+        }
+        .university-container h2 {
+            margin-top: 0;
+        }
+        .university-details p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Universities in the United Kingdom</h1>
+    <div id="universityData"></div>
+
+    <script>
+        // Fetch university data from the UK universities API
+        fetch('http://universities.hipolabs.com/search?country=United+Kingdom')
+            .then(response => response.json())
+            .then(universities => {
+                const universityContainer = document.getElementById('universityData');
+                
+                // Loop through each university and create an HTML block for it
+                universities.forEach(university => {
+                    let universityHtml = `
+                        <div class="university-container">
+                            <h2>${university.name}</h2>
+                            <div class="university-details">
+                                <p><strong>Country:</strong> ${university.country}</p>
+                                <p><strong>Website:</strong> <a href="${university.web_pages[0]}" target="_blank" style="color: lightblue;">${university.web_pages[0]}</a></p>
+                            </div>
+                        </div>
+                    `;
+                    universityContainer.innerHTML += universityHtml;
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                document.getElementById('universityData').innerHTML = '<p>Failed to fetch university data.</p>';
+            });
+    </script>
+</body>
+</html>
