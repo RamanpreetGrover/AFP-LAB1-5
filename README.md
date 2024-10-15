@@ -1,5 +1,8 @@
-Created a repository to answer questions from Lab1-5 in the Advanced front end Programming Class.
+Created a repository to answer questions from Lab1-5 in the Advanced front-end Programming Class.
+
 The questions are as follows:
+
+
 Lab 1
 Step 1: Create an HTML document and reference Moment.js and Lodash.
 Step 2: Create a date variable and use at least two different Moment.js functionality to manipulate the date you created earlier.
